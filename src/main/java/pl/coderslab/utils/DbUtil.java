@@ -1,9 +1,11 @@
 package pl.coderslab.utils;
 
+
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
+import javax.sql.*;
 import java.sql.Connection;
 import java.sql.SQLException;
 
@@ -19,7 +21,7 @@ public class DbUtil {
             try {
                 Context initContext = new InitialContext();
                 Context envContext = (Context) initContext.lookup("java:/comp/env");
-                dataSource = (DataSource) envContext.lookup("jdbc/users");
+                dataSource = (DataSource)envContext.lookup("jdbc/users");
             } catch (NamingException e) {
                 e.printStackTrace();
             }
